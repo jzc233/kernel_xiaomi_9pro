@@ -400,6 +400,12 @@ OBJCOPY		= $(CROSS_COMPILE)objcopy
 OBJDUMP		= $(CROSS_COMPILE)objdump
 READELF		= $(CROSS_COMPILE)readelf
 STRIP		= $(CROSS_COMPILE)strip
+GCC_FLAGS	+= -Werror=unknown-warning-option
+GCC_FLAGS	+= $(call cc-option, -Wno-misleading-indentation)
+GCC_FLAGS	+= $(call cc-option, -Wno-bool-operation)
+GCC_FLAGS	+= $(call cc-option, -Wno-unsequenced)
+KBUILD_CFLAGS	+= $(GCC_FLAGS)
+KBUILD_AFLAGS	+= $(GCC_FLAGS)
 endif
 AWK		= awk
 GENKSYMS	= scripts/genksyms/genksyms
