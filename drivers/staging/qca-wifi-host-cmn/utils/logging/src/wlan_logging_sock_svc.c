@@ -615,6 +615,7 @@ err:
 				&gwlan_logging.pkt_stat_free_list);
 		spin_unlock_irqrestore(&gwlan_logging.pkt_stats_lock, flags);
 		ret = 0;
+    }
 	}
 
 	return ret;
